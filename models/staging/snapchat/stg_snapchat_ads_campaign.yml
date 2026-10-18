@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_snapchat_ads_campaign
+    description: "Cleaned details of snapchat ad groups"
+    
+    # Model-level configurations can also be set here if needed
+    config:
+      materialized: view
+    
+    columns:
+      - name: campaign_id
+        description: "ID attached to the specific campaign"
+        tests:
+          - unique
+          - not_null
+  
+      - name: account_id
+        description: "The account linked to the specific campaign"
+        tests:
+          - not_null    
+
+      - name: campaign_name
+        description: "campaign name"
+        tests:
+          - not_null    
+
+  
+     
+        

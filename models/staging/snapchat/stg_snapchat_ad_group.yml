@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_snapchat_ad_group
+    description: "Cleaned details of snapchat ad groups"
+    
+    # Model-level configurations can also be set here if needed
+    config:
+      materialized: view
+    
+    columns:
+      - name: _surrogate_key
+        description: "Surrogate_key"
+        tests:
+          - unique
+          - not_null
+  
+      - name: ad_group_id
+        description: "The id of the snapchat groups"
+        tests:
+          - not_null    
+
+      - name: campaign_id
+        description: "IDs for each campaign run on snapchat"
+        tests:
+          - not_null    
+
+      - name: ad_group_name
+        description: "Name of each ad group"
+        tests:
+          - not_null
+  
+      - name: ad_group_updated_at
+        description: "The updated ad group time"
+        tests:
+          - not_null    
+
+        

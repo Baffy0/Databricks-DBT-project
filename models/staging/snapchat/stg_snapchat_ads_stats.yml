@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: stg_snapchat_ads_stats
+    description: "Cleaned details of snapchat ad groups"
+    
+    # Model-level configurations can also be set here if needed
+    config:
+      materialized: view
+    
+    columns:
+      - name: ad_detail_id
+        description: "ID attached to the specific stats"
+        tests:
+          - unique
+          - not_null
+  
+      - name: ad_currency_code
+        description: "Currency in which ad cost"
+        tests:
+          - not_null    
+
+      - name: ad_country
+        description: "country in which ad took place"
+        tests:
+          - not_null    
+
+      - name: spend
+        description: "amount spent on ads"
+        tests:
+          - not_null    
+
+      - name: impressions
+        description: "number of impressions"
+        tests:
+          - not_null    
+
+      - name: ad_clicks
+        description: "clicks per ad"
+        tests:
+          - not_null 
+
+      - name: ad_date
+        description: "date ad took place"
+        tests:
+          - not_null    
+   
+      - name: data_src
+        description: "social media platform for ad"
+        tests:
+          - not_null    
+     
+
+     
+        

@@ -1,0 +1,30 @@
+{{ config(materialized='view') }}
+
+
+with raw_source as (
+    select * from {{ source('raw_files', 'raw_facebook_ads_stats') }}
+)
+
+
+SELECT
+    ad_id,
+    account_id,
+    CAST(ad_spend AS DECIMAL(10,2)) AS spend,
+
+    CAST(
+        CASE
+            WHEN TRIM(ad_impressions) = 'null' THEN '0'
+            ELSE ad_impressions
+        END AS INT
+    ) AS impressions,
+
+    CAST(
+        CASE
+            WHEN TRIM(ad_clicks) = 'null' THEN '0'
+            ELSE ad_clicks
+        END AS INT
+    ) AS ad_clicks,
+
+    CAST(ad_date AS DATE) AS ad_date
+
+FROM raw_source

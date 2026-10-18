@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_facebook_campaign
+    description: "Cleaned details on each campaign run"
+    
+    # Model-level configurations can also be set here if needed
+    config:
+      materialized: view
+    
+    columns:
+      - name: campaign_id
+        description: "The unique primary key for each campaign "
+        tests:
+          - unique
+          - not_null
+  
+      - name: campaign_name
+        description: "The name given to each campaign"
+        tests:
+          - not_null    
+
+      - name: campaign_updated_at
+        description: "Timestamp for campaign"
+        tests:
+          - not_null    

@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_facebook_ad_group
+    description: "Cleaned, cast, and standardized ad profile."
+    
+    # Model-level configurations can also be set here if needed
+    config:
+      materialized: view
+
+    columns:
+      - name: ad_group_id
+        description: "The unique primary key for each ad group "
+        tests:
+          - unique
+          - not_null
+
+      - name: ad_group_name
+        description: "Name of Ad."
+        tests:
+          - not_null
+
+      - name: ad_group_updated_at
+        description: "Time stamp for name update."
+        tests:
+          - not_null
+
+
+
+

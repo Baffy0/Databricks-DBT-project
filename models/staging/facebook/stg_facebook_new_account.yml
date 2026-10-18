@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: stg_facebook_new_account
+    description: "Cleaned details on accounts used for ad payments"
+    
+    # Model-level configurations can also be set here if needed
+    config:
+      materialized: view
+    
+    columns:
+      - name: account_id
+        description: "The unique primary key for each account"
+        tests:
+          - unique
+          - not_null
+  
+      - name: account_name
+        description: "The name of each account used for the ad payment"
+        tests:
+          - not_null    
+
+      - name: ad_currency_code
+        description: "Currency of the account (EUR/USD)"
+        tests:
+          - not_null    
+
+      - name: account_created_at
+        description: "The time the account was created "
+        tests:
+          - not_null
+  
+      - name: account_updated_at
+        description: "The updated account time"
+        tests:
+          - not_null    
+
+        

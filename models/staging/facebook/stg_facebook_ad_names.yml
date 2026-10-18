@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: stg_facebook_ad_names
+    description: "Cleaned, cast, and standardized ad profile."
+    
+    # Model-level configurations can also be set here if needed
+    config:
+      materialized: view
+
+    columns:
+      - name: ad_id
+        description: "The unique primary key for all ads"
+        tests:
+          - unique
+          - not_null
+
+      - name: campaign_id
+        description: "The id given to each campaign"
+        tests:
+          - not_null
+
+      - name: ad_group_id
+        description: "IDs for ad groupings."
+        tests:
+          - not_null
+
+      - name: ad_updated_at
+        description: "Time stamp for name update."
+        tests:
+          - not_null
+      
+      - name: account_id
+        description: "The ID provided for each account"
+        tests:
+          - not_null
+
+      - name: ad_name
+        description: "Time stamp for name update."
+        tests:
+          - not_null    
+      
+      - name: ad_status
+        description: "The current status of ad such as Arhcive,Deleted,Active,Paused"
+        tests:
+          - not_null   
+
+

@@ -1,0 +1,70 @@
+version: 2
+
+
+
+sources:
+  - name: raw_files # required
+    description: Contains raw facebook and snapchat ad data
+    database: bronze_production
+    schema: cdc_staging
+    config:
+      enabled: true
+      freshness: # moved under config in v1.10
+        warn_after:
+          count: 2
+          period: day
+      meta: 
+       owner: "cde"
+  
+
+
+    tables:
+      - name: raw_facebook_ads_stats #required
+        description: Contains stats on each campaign
+        
+      - name: raw_facebook_new_account #required
+        description: Contains accouns used for the data
+        config:
+          enabled: true
+          event_time: account_updated_at
+
+      - name: raw_facebook_ad_group #required
+        description: Contains ad groupings
+        config:
+          enabled: true
+          event_time: ad_group_updated_at  
+
+      - name: raw_facebook_ad_names #required
+        description: Contains name used for each ad, group_id, campaign_id,
+        config:
+          enabled: true
+          event_time: ad_updated_at      
+
+      - name: raw_facebook_campaign #required
+        description: Contains information on campaigns
+        config:
+          enabled: true
+          event_time: campaign_updated_at  
+
+      - name: raw_snapchat_ad_group #required
+        description: Contains information on ads, groups, and campaign id
+        config:
+          enabled: true
+          event_time: ad_group_updated_at                      
+
+      
+      - name: raw_snapchat_ad_names #required
+        description: Contains information on ads such as names, group and ad ids
+        config:
+          enabled: true
+          event_time: ad_detail_updated_at    
+
+      - name: raw_snapchat_ads_stats #required
+        description: Contains stats on snapchat campaigns
+        config:
+          enabled: true
+          event_time: ad_detail_updated_at         
+
+      - name: raw_snapchat_ads_campaign #required
+        description: Contains information on campaigns like campaign_name
+           
