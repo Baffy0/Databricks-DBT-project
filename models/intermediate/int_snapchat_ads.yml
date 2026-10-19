@@ -1,0 +1,85 @@
+version: 2
+
+models:
+  - name: int_snapchat_ads
+    description: "Snapchat Ads in Detail"
+    #config:
+    #  contract:
+    #    enforced: true
+    
+    columns:
+      - name: ad_date
+        description: "The date each campaign took place"
+        data_type: date
+        data_tests:
+          - not_null
+          
+      
+      - name: ad_id
+        description: "The unique identifier for each ad record"
+        data_type: string
+        data_tests:
+          - not_null
+          
+
+      - name: campaign_name
+        description: "The name of the campaign"
+        data_type: string
+        data_tests:
+          - not_null
+            
+
+      - name: ad_group_name
+        description: "The name of the ad group each campaign belongs to"
+        data_type: string
+        data_tests:
+          - not_null
+          
+
+      - name: ad_name
+        description: "The name of ad"
+        data_type: string
+        data_tests:
+          - not_null
+          
+
+      - name: ad_currency_code
+        description: "The currency spent on ad"
+        data_type: string
+        data_tests:
+          - not_null
+          
+
+      - name: spend
+        description: "Total Spend"
+        data_type: decimal
+        data_tests:
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"    
+
+      - name: impressions
+        description: "the number of impressions per ad"
+        data_type: integer
+        data_tests:
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"  
+
+      - name: ad_clicks
+        description: "Total number of clicks per ad"
+        data_type: integer
+        data_tests:
+          - dbt_utils.expression_is_true:
+              arguments:
+                expression: ">= 0"     
+       
+
+      - name: data_src
+        description: "Data source-snapchat"
+        data_type: string
+        data_tests:
+          - not_null
+           
+ 
+

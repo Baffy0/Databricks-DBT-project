@@ -31,4 +31,17 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   cde_marketing_ad:
+
+    staging: 
       +materialized: view
+      +catalog: cde_development
+      +schema: ads_staging
+
+    intermediate:
+      +materialized: table
+      +catalog: cde_development
+      +schema: ads_intermediate
+
+
+
+      

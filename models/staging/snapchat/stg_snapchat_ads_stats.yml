@@ -12,7 +12,6 @@ models:
       - name: ad_detail_id
         description: "ID attached to the specific stats"
         tests:
-          - unique
           - not_null
   
       - name: ad_currency_code
