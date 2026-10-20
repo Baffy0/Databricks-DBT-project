@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: int_facebook_ads
-    description: "Snapchat Ads in Detail"
+    description: "facebook Ads in Detail"
     #config:
     #  contract:
     #    enforced: true
@@ -76,7 +76,7 @@ models:
        
 
       - name: data_src
-        description: "Data source-snapchat"
+        description: "Data source-facebook"
         data_type: string
         data_tests:
           - not_null

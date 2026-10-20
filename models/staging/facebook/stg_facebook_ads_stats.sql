@@ -7,7 +7,7 @@ with raw_source as (
 
 
 SELECT
-    ad_id,
+    cast(ad_id as string) as ad_id,
     account_id,
     CAST(ad_spend AS DECIMAL(10,2)) AS spend,
 

@@ -30,18 +30,23 @@ clean-targets:         # directories to be removed by `dbt clean`
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
 models:
+    
   cde_marketing_ad:
-
-    staging: 
+    staging:
       +materialized: view
-      +catalog: cde_development
       +schema: ads_staging
+      +catalog: cde_development
 
     intermediate:
       +materialized: table
-      +catalog: cde_development
       +schema: ads_intermediate
+      +catalog: cde_development
 
+    marts:
+      +materialized: table
+      +schema: ads_mart
+      +catalog: cde_development
 
-
-      
+  elementary:
+    +schema: elementary
+    +catalog: cde_development
