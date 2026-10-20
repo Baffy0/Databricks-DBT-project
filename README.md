@@ -32,7 +32,6 @@ The pipeline architecture diagram is available below.
 
 ![Marketing Ads Data Pipeline](docs/marketing_ads_pipeline.png)
 
-*Ensure the image path and filename match the actual location of your exported Excalidraw diagram.*
 
 ## Project Structure
 
